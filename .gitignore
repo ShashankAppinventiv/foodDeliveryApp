@@ -1,0 +1,6 @@
+app-service/.env
+app-service/.vscode
+app-service/dist
+app-service/node_modules
+admin-service/dist
+admin-service/node_modules

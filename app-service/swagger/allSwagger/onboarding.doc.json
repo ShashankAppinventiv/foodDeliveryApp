@@ -1,0 +1,155 @@
+{
+  "paths": {
+    "user-login": {
+      "post": {
+        "tags": ["onboarding"],
+        "description": "This api is used for user login",
+        "requestBody": {
+          "description": "Object",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/user-login-details"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          }
+        }
+      }
+    },
+    "user-verify-new-user": {
+      "post": {
+        "tags": ["onboarding"],
+        "description": "This api is used for otp verification of new users",
+        "requestBody": {
+          "description": "Object",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/user-verify-with-otp"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          }
+        }
+      }
+    },
+    "user-signup": {
+      "post": {
+        "tags": ["onboarding"],
+        "description": "This api is used for user signup",
+        "requestBody": {
+          "description": "Object",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/user-signup-details"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          }
+        }
+      }
+    },
+    "user-logout":{
+      "patch": {
+        "tags": ["onboarding"],
+        "description": "This api is used for user logout",
+        "security":{
+          "BearerAuth":{
+            "$ref":"../swagger.json#/components/BearerAuth"
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "user-verify-with-otp":{
+        "type": "object",
+        "properties": {
+          "otp": {
+            "type": "string",
+            "required": true,
+            "example": "ahd6H7"
+          }
+        }
+      },
+      "user-signup-details": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "required": true,
+            "example": "name"
+          },
+          "username": {
+            "type": "string",
+            "required": true,
+            "example": "username"
+          },
+          "password": {
+            "type": "string",
+            "required": true,
+            "example": "password"
+          },
+          "email": {
+            "type": "string",
+            "required": true,
+            "example": "user@gmail.com"
+          },
+          "mobile": {
+            "type": "number",
+            "required": true,
+            "example": 9238962389
+          },
+          "type": {
+            "type": "string",
+            "required": true,
+            "enum": ["seller", "buyer"]
+          }
+        }
+      },
+      "user-login-details": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string",
+            "required": true,
+            "example": "username"
+          },
+          "password": {
+            "type": "string",
+            "required": true,
+            "example": "password.12!"
+          },
+          "deviceId": {
+            "type": "string",
+            "required": true,
+            "example": "1211"
+          }
+        }
+      }
+    }
+  }
+}

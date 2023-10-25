@@ -1,0 +1,17 @@
+syntax = 'proto3';
+
+package userData;
+
+service Provider{
+    rpc GetUsers(admin) returns (userInfo) {};
+}
+
+message void {}
+
+message userInfo {
+  string name = 1;
+}
+
+message admin {
+    string name = 1;
+}

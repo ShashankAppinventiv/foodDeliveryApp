@@ -1,0 +1,35 @@
+{
+    "openapi": "3.0.3",
+    "info": {
+        "description": "Food Delivery App",
+        "title": "Food Delivery Application",
+        "version": "1.0.0"
+    },
+    "components": {
+        "BearerAuth": {
+            "type": "apiKey",
+            "name":"Authorization",
+            "in":"header",
+            "scheme": "bearer"
+        },
+        "security":{
+            "BearerAuth":[]
+        }
+    },
+    "paths":{
+        "/user/signup":{
+            "$ref": "allSwagger/onboarding.doc.json#/paths/user-signup"
+        },
+        "/user/verify-new-user":{
+            "$ref": "allSwagger/onboarding.doc.json#/paths/user-verify-new-user"
+        },
+
+        "/user/login":{
+            "$ref": "allSwagger/onboarding.doc.json#/paths/user-login"
+        },
+        "/user/logout":{
+            "$ref": "allSwagger/onboarding.doc.json#/paths/user-logout"
+
+        }
+    }
+}
